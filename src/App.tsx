@@ -1,12 +1,40 @@
 import React from 'react'
-import { ThemeProvider, Typography } from '@mui/material'
+import SearchPage from './pages/SearchPage/SearchPage'
+import ResultsPage from './pages/ResultsPage/ResultsPage'
+import ErrorPage from './pages/ErrorPage/ErrorPage'
+import { ThemeProvider } from '@mui/material'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import theme from './config/theme'
 
 const App: React.FC = () => {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <SearchPage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: '/results',
+      element: <ResultsPage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: '/error',
+      element: <ErrorPage />
+    }
+  ])
+
   return (
     <ThemeProvider theme={theme}>
-      <Typography>Travel Buddy</Typography>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <RouterProvider router={router} />
+      </LocalizationProvider>
     </ThemeProvider>
   )
 }
+
+App.displayName = 'App'
+
 export default App
