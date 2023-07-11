@@ -6,7 +6,7 @@ import IDestinationFieldContextValue from '../components/DestinationPlanner/type
 /**
  * Hook that returns only the destinations from the Formik context
  */
-const useGetDestinationsInContext = () => {
+const useGetDestinationsInValues = () => {
   return useCallback(
     (values: ISearchFormValues) =>
       omit(
@@ -17,4 +17,4 @@ const useGetDestinationsInContext = () => {
   )
 }
 
-export default useGetDestinationsInContext
+export default useGetDestinationsInValues

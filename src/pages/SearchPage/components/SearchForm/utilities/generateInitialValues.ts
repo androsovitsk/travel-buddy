@@ -16,7 +16,7 @@ const generateInitialValues = () => {
     },
     [secondDestinationGeneratedKey]: {
       value: '',
-      order: 0,
+      order: 1,
       lastChangeWasInternal: true
     },
     numberOfPassengers: 0,

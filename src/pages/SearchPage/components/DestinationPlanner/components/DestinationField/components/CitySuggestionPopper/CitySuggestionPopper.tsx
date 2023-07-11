@@ -34,6 +34,7 @@ const CitySuggestionPopper: React.FC<ICitySuggestionPopperProps> = ({
               padding: 1,
               '& > MuiSkeleton:not(last-child)': { marginBottom: 1 }
             }}
+            data-testid={'loadingSkeletons'}
           >
             <Skeleton height={30} />
             <Skeleton height={30} />

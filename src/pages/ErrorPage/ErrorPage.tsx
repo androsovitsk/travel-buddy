@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import useNavigateWithQueryParameters from '../../hooks/useNavigateWithQueryParameters'
 
-const ErrorPage: React.FC = (props) => {
+const ErrorPage: React.FC = () => {
   const navigate = useNavigateWithQueryParameters()
 
   return (

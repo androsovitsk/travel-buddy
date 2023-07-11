@@ -15,6 +15,7 @@ import ISearchFormValues from '../../../../types/ISearchFormValues'
 import IDestinationFieldContextValue from '../../types/IDestinationFieldContextValue'
 import { isNil, path } from 'ramda'
 import isAValidValue from '../../../../../../utilities/isAValidValue'
+import useDestinationField from './hooks/useDestinationField'
 
 interface IDestinationFieldProps {
   binding: string
@@ -41,11 +42,14 @@ const DestinationField: React.FC<IDestinationFieldProps> = ({
 
   const {
     values: { [binding]: fieldValue },
-    touched: { [binding]: isFieldTouched },
-    errors,
-    setFieldValue,
-    setFieldTouched
+    errors
   } = useFormikContext<ISearchFormValues>()
+
+  const {
+    handleOnValueChange,
+    handleOnClearButtonClick,
+    handleOnMenuItemClick
+  } = useDestinationField(binding, popper.handleClose)
 
   const handleOnRemoveDestination = useHandleRemoveDestination(binding)
 
@@ -65,17 +69,7 @@ const DestinationField: React.FC<IDestinationFieldProps> = ({
             value={(fieldValue as IDestinationFieldContextValue).value}
             error={!isNil(path([binding], errors))}
             helperText={path([binding], errors) as string}
-            onChange={(event) => {
-              setFieldValue(binding, {
-                value: event.target.value,
-                order: (fieldValue as IDestinationFieldContextValue).order,
-                lastChangeWasInternal: false
-              }).then(() => {
-                if (!isFieldTouched) {
-                  setFieldTouched(binding, true)
-                }
-              })
-            }}
+            onChange={handleOnValueChange}
             {...(isAValidValue(
               (fieldValue as IDestinationFieldContextValue).value
             ) &&
@@ -86,14 +80,7 @@ const DestinationField: React.FC<IDestinationFieldProps> = ({
                       <IconButton
                         color={'primary'}
                         edge={'end'}
-                        onClick={() =>
-                          setFieldValue(binding, {
-                            value: '',
-                            order: (fieldValue as IDestinationFieldContextValue)
-                              .order,
-                            lastChangeWasInternal: true
-                          })
-                        }
+                        onClick={handleOnClearButtonClick}
                       >
                         <Clear />
                       </IconButton>
@@ -107,13 +94,7 @@ const DestinationField: React.FC<IDestinationFieldProps> = ({
             isOpen={popper.isOpen}
             isLoading={citySuggestion.isLoading}
             options={citySuggestion.options}
-            onMenuItemClick={(optionName) =>
-              setFieldValue(binding, {
-                value: optionName,
-                order: (fieldValue as IDestinationFieldContextValue).order,
-                lastChangeWasInternal: true
-              }).then(popper.handleClose)
-            }
+            onMenuItemClick={handleOnMenuItemClick}
           />
         </Box>
       }

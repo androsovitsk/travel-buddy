@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useFormikContext } from 'formik'
-import useGetDestinationsInContext from '../../../../../hooks/useGetDestinationsInContext'
+import useGetDestinationsInValues from '../../../../../hooks/useGetDestinationsInValues'
 import IDestinationFieldContextValue from '../../../types/IDestinationFieldContextValue'
 import ISearchFormValues from '../../../../../types/ISearchFormValues'
 import { forEachObjIndexed } from 'ramda'
@@ -16,7 +16,7 @@ const useHandleRemoveDestination = (binding: string) => {
     setFieldValue
   } = useFormikContext<ISearchFormValues>()
 
-  const getDestinationsInContext = useGetDestinationsInContext()
+  const getDestinationsInContext = useGetDestinationsInValues()
 
   return useCallback(() => {
     const destinations = getDestinationsInContext(values)
@@ -33,11 +33,11 @@ const useHandleRemoveDestination = (binding: string) => {
           value: currentValue.value,
           order: currentValue.order - 1,
           lastChangeWasInternal: true
-        }).then()
+        })
       }
     }, destinations)
 
-    setFieldValue(binding, undefined).then()
+    setFieldValue(binding, undefined)
   }, [binding, values, fieldValue, setFieldValue, getDestinationsInContext])
 }
 

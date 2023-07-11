@@ -33,16 +33,17 @@ const DateField: React.FC<IDateFieldProps> = ({
         textField: {
           fullWidth: true,
           size: 'small',
+          name: binding,
           helperText: path([binding], errors) as string,
           error: !isNil(path([binding], errors))
         }
       }}
       onChange={(newValue) => {
-        setFieldValue(binding, newValue).then(() => {
-          if (!isFieldTouched) {
-            setFieldTouched(binding, true)
-          }
-        })
+        setFieldValue(binding, newValue)
+        
+        if (!isFieldTouched) {
+          setFieldTouched(binding, true)
+        }
       }}
       {...props}
     />

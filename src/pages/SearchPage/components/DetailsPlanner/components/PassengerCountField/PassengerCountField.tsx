@@ -60,16 +60,16 @@ const PassengerCountField: React.FC<IPassengerCountFieldProps> = ({
             <IconButton
               color={'primary'}
               size={'small'}
-              onClick={() =>
+              onClick={() => {
                 setFieldValue(
                   binding,
                   (fieldValue as ISearchFormValues['numberOfPassengers']) + 1
-                ).then(() => {
-                  if (!isFieldTouched) {
-                    setFieldTouched(binding, true)
-                  }
-                })
-              }
+                )
+
+                if (!isFieldTouched) {
+                  setFieldTouched(binding, true)
+                }
+              }}
             >
               <AddCircleOutlined fontSize='inherit' />
             </IconButton>

@@ -23,8 +23,9 @@ const useHandleAddNewDestination = () => {
 
     setFieldValue(newDestinationBinding, {
       value: '',
-      order: lastOrderId + 1
-    }).then()
+      order: lastOrderId + 1,
+      lastChangeWasInternal: true
+    })
   }, [values, getSortedDestinationEntries, setFieldValue])
 }
 

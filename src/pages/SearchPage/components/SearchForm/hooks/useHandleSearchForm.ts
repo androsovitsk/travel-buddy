@@ -38,7 +38,7 @@ const useHandleSearchForm = () => {
 
       const queryParameters = {
         destinations,
-        numberOfPassengers: values.numberOfPassengers,
+        numberOfPassengers: values.numberOfPassengers.toString(),
         selectedDate: formatISO(values.selectedDate, { representation: 'date' })
       }
 

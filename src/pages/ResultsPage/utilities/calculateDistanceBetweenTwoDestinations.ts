@@ -1,4 +1,4 @@
-import convertNumberToRadian from './convertNumberToRadian'
+import convertDegreeToRadian from './convertDegreeToRadian'
 
 /**
  * Function to calculate the distance between two latitude and longitude point using the Haversine formula.
@@ -13,10 +13,10 @@ const calculateDistanceBetweenTwoDestinations = (
   secondLat: number,
   secondLon: number
 ): number => {
-  const dLat = convertNumberToRadian(secondLat - firstLat)
-  const dLon = convertNumberToRadian(secondLon - firstLon)
-  const firstDestinationLatInRad = convertNumberToRadian(firstLat)
-  const secondDestinationLatInRad = convertNumberToRadian(secondLat)
+  const dLat = convertDegreeToRadian(secondLat - firstLat)
+  const dLon = convertDegreeToRadian(secondLon - firstLon)
+  const firstDestinationLatInRad = convertDegreeToRadian(firstLat)
+  const secondDestinationLatInRad = convertDegreeToRadian(secondLat)
 
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +

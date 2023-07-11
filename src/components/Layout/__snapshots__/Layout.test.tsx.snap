@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pc6395-MuiGrid2-root"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-1odm8bn-MuiPaper-root"
+    />
+  </div>
+</DocumentFragment>
+`;

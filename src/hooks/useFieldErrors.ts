@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { FormikValues, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
+import ISearchFormValues from '../pages/SearchPage/types/ISearchFormValues'
 import isAValidValue from '../utilities/isAValidValue'
 
 /**
@@ -11,9 +12,8 @@ const useFieldErrors = (binding: string, fieldErrorMessage: string) => {
   const {
     values: { [binding]: fieldValue },
     touched: { [binding]: isFieldTouched },
-    setFieldTouched,
     setFieldError
-  } = useFormikContext<FormikValues>()
+  } = useFormikContext<ISearchFormValues>()
 
   useEffect(() => {
     /** Reset errors on field value change */
@@ -23,14 +23,7 @@ const useFieldErrors = (binding: string, fieldErrorMessage: string) => {
     if (!isAValidValue(fieldValue) && isFieldTouched) {
       setFieldError(binding, fieldErrorMessage)
     }
-  }, [
-    binding,
-    fieldValue,
-    fieldErrorMessage,
-    isFieldTouched,
-    setFieldTouched,
-    setFieldError
-  ])
+  }, [binding, fieldValue, fieldErrorMessage, isFieldTouched, setFieldError])
 }
 
 export default useFieldErrors

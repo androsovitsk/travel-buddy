@@ -1,12 +1,12 @@
 import { useCallback } from 'react'
-import useGetDestinationsInContext from './useGetDestinationsInContext'
+import useGetDestinationsInValues from './useGetDestinationsInValues'
 import ISearchFormValues from '../types/ISearchFormValues'
 
 /**
  * Hook that creates sorted object entries from the destinations found in the Formik context
  */
 const useGetSortedDestinationEntries = () => {
-  const getDestinationsInContext = useGetDestinationsInContext()
+  const getDestinationsInContext = useGetDestinationsInValues()
 
   return useCallback(
     (values: ISearchFormValues) => {

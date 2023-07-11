@@ -25,6 +25,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -54,7 +55,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "jest/no-conditional-expect": "off",
+      "testing-library/no-unnecessary-act": "off",
+      "testing-library/no-node-access": "off"
+    }
   },
   "prettier": {
     "trailingComma": "none",
