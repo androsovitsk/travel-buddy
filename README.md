@@ -20,7 +20,7 @@ for (almost) every file and E2E tests are written for all 3 pages (search, resul
 
 ### Visit the deployed application on the web
 
-Visit [https://androsovitsk.github.io/travel-buddy](https://androsovitsk.github.io/travel-buddy) to play with the
+Visit [this link](https://resonant-marshmallow-162737.netlify.app/y) to play with the
 application.
 
 ### Run the application locally
