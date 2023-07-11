@@ -18,11 +18,16 @@ for (almost) every file and E2E tests are written for all 3 pages (search, resul
 
 ## Running the application
 
+### Visit the deployed application on the web
+
+Visit [https://androsovitsk.github.io/travel-buddy](https://androsovitsk.github.io/travel-buddy) to play with the
+application.
+
 ### Run the application locally
 
 1. Clone the repository
 2. Run `npm install` in the console to install the dependencies.
-3. Run `npm start` in the console to start the development server.
+3. Run `npm start` in the console to start the development server.s
 4. Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Run the unit tests

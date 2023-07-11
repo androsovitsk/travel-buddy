@@ -2,6 +2,7 @@
   "name": "mozio-travel-buddy",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://androsovitsk.github.io/travel-buddy",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -32,12 +33,15 @@
     "@types/jest": "^29.5.2",
     "concurrently": "^8.2.0",
     "cypress": "^12.17.1",
+    "gh-pages": "^5.0.0",
     "jest": "^27.5.1",
     "prettier": "^3.0.0"
   },
   "scripts": {
     "test": "react-scripts test",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "cypress:open": "cypress open",
     "start": "react-scripts start",
     "start:unit": "npm run test",
