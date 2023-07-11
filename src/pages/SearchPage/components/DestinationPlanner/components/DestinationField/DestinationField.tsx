@@ -65,6 +65,9 @@ const DestinationField: React.FC<IDestinationFieldProps> = ({
             size={'small'}
             ref={popper.ref}
             name={binding}
+            id={`destination-field-${
+              (fieldValue as IDestinationFieldContextValue).order
+            }`}
             label={label}
             value={(fieldValue as IDestinationFieldContextValue).value}
             error={!isNil(path([binding], errors))}

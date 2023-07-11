@@ -32,6 +32,7 @@ const PassengerCountField: React.FC<IPassengerCountFieldProps> = ({
       fullWidth
       size={'small'}
       name={binding}
+      id={binding}
       label={'Passengers'}
       value={fieldValue}
       error={!isNil(path([binding], errors))}

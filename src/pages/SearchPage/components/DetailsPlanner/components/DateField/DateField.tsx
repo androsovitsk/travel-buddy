@@ -28,19 +28,21 @@ const DateField: React.FC<IDateFieldProps> = ({
   return (
     <DatePicker
       label={'Date'}
+      format={'dd/MM/yyyy'}
       value={fieldValue}
       slotProps={{
         textField: {
           fullWidth: true,
           size: 'small',
           name: binding,
+          id: binding,
           helperText: path([binding], errors) as string,
           error: !isNil(path([binding], errors))
         }
       }}
       onChange={(newValue) => {
         setFieldValue(binding, newValue)
-        
+
         if (!isFieldTouched) {
           setFieldTouched(binding, true)
         }
