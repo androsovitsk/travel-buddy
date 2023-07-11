@@ -68,7 +68,14 @@ const useFetchSuggestions = (
       setOptions([])
       handleClose()
     }
-  }, [binding, fieldValue, handleOpen, handleClose, fetchFindCitiesEndpoint])
+  }, [
+    binding,
+    fieldValue,
+    handleOpen,
+    handleClose,
+    fetchFindCitiesEndpoint,
+    setFieldError
+  ])
 
   return { isLoading, options }
 }
